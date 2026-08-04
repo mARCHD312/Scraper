@@ -1,0 +1,7 @@
+{
+  "max_results_per_query": 150,
+  "scrape_emails": true,
+  "headless": true,
+  "workers": 3,
+  "output_dir": "rezultati"
+}
