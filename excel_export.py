@@ -96,7 +96,7 @@ def format_sheet(ws):
     ws.row_dimensions[1].height = 22
 
 
-def save_to_excel(results_map: dict, output_dir: str):
+def save_to_excel(results_map: dict, output_dir: str, skip_duplicates: bool = True):
     """
     results_map je oblika:
     { (lokacija, sekcija, kategorija): [ lista_rezultata ], ... }
@@ -138,13 +138,39 @@ def save_to_excel(results_map: dict, output_dir: str):
 
             for kategorija, results in kategorije.items():
                 sname = safe_sheet_name(kategorija)
+                existing_urls = set()
+                
                 if sname in wb.sheetnames:
-                    del wb[sname]
-                ws = wb.create_sheet(title=sname)
-                ws.append([ZAGLAVLJE.get(k, k) for k in KOLONE])
+                    if not skip_duplicates:
+                        del wb[sname]
+                        ws = wb.create_sheet(title=sname)
+                        ws.append([ZAGLAVLJE.get(k, k) for k in KOLONE])
+                    else:
+                        ws = wb[sname]
+                        url_col_idx = KOLONE.index("google_maps_url") + 1
+                        for row_idx in range(2, ws.max_row + 1):
+                            val = ws.cell(row=row_idx, column=url_col_idx).value
+                            if val:
+                                existing_urls.add(val)
+                else:
+                    ws = wb.create_sheet(title=sname)
+                    ws.append([ZAGLAVLJE.get(k, k) for k in KOLONE])
+
+                added_count = 0
                 for row in results:
+                    url = row.get("google_maps_url", "")
+                    if skip_duplicates and url in existing_urls:
+                        continue
+                    
+                    if skip_duplicates:
+                        row["redni_broj"] = ws.max_row # max_row je trenutno zadnji red
+                        
                     ws.append([row.get(k, "") for k in KOLONE])
-                format_sheet(ws)
+                    existing_urls.add(url)
+                    added_count += 1
+                
+                if added_count > 0:
+                    format_sheet(ws)
 
             wb.save(filepath)
             print(f"  [+] Sačuvano: {filepath}")

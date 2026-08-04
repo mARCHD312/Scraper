@@ -1,24 +1,37 @@
 # Arhitektura i Dizajn
 Architectural designer
 Architecture firm
-Architect
+Architekturbüro
+Architekt
 Interior designer
+Innenarchitekt
 Interior architecture
 Landscape architect
+Landschaftsarchitekt
 
 # 3D Vizuelizacija i ArchViz
 3D rendering service
+3D-Visualisierung
 Architectural rendering
+Architekturvisualisierung
 Visualization service
 Animation studio
+Animationsstudio
 
 # Srodni Poslovi (Dizajn)
 Graphic design studio
+Grafikdesign-Studio
 Design agency
+Designagentur
 Industrial design company
+Industriedesign
 
 # Proizvodnja Nameštaja
 Furniture manufacturer
+Möbelhersteller
 Custom furniture maker
+Möbel nach Maß
 Furniture maker
+Tischlerei
 Cabinet maker
+Möbelwerkstatt
