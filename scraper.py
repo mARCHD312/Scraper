@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from playwright.async_api import async_playwright
 
-async def scrape_one_query(page, query: str, location: str, max_results: int, scrape_emails: bool = False) -> list:
+async def scrape_one_query(page, query: str, location: str, max_results: int, scrape_emails: bool = False, stop_flag: dict = None) -> list:
     """Scrape jedne pretrage za lokaciju. location može biti 'Grad' ili 'Država' ili 'Grad, Država'."""
     results = []
     full_query = f"{query}, {location}"
@@ -39,6 +39,10 @@ async def scrape_one_query(page, query: str, location: str, max_results: int, sc
         last_count = 0
         no_change = 0
         while True:
+            if stop_flag and stop_flag.get("stop"):
+                print("      [!] Prekinuto od strane korisnika tokom skrolovanja.")
+                break
+                
             cards = await page.locator('div[role="feed"] a[href*="maps/place"]').all()
             if len(cards) >= max_results:
                 break
@@ -67,6 +71,10 @@ async def scrape_one_query(page, query: str, location: str, max_results: int, sc
         processed = 0
 
         for item in items:
+            if stop_flag and stop_flag.get("stop"):
+                print("      [!] Prekinuto od strane korisnika tokom obrade rezultata.")
+                break
+                
             if processed >= max_results:
                 break
             try:
@@ -161,6 +169,10 @@ async def scrape_one_query(page, query: str, location: str, max_results: int, sc
     if scrape_emails:
         print(f"    [*] Pokrećem email scraping za {len(results)} rezultata...")
         for r in results:
+            if stop_flag and stop_flag.get("stop"):
+                print("      [!] Prekinuto preuzimanje emailova.")
+                break
+                
             if r.get("web_stranica"):
                 # Pokusaj pretrage
                 print(f"      Tražim email na: {r['web_stranica']}")
@@ -258,7 +270,7 @@ async def extract_detail_page(page, fallback_name: str = "") -> dict:
 
     return data
 
-async def worker(queue, browser, headless, max_per, scrape_emails):
+async def worker(queue, browser, headless, max_per, scrape_emails, stop_flag):
     """Worker koji uzima zadatke (kategorija, lokacija) iz reda i parsira ih koristeći jedan browser."""
     # Svaki worker dobija svoj kontekst da se pretrage ne bi preklapale
     context = await browser.new_context(
@@ -271,6 +283,9 @@ async def worker(queue, browser, headless, max_per, scrape_emails):
     results_map = {} # Kljuc je (lokacija, sekcija, kategorija)
     
     while True:
+        if stop_flag and stop_flag.get("stop"):
+            break
+            
         task = await queue.get()
         if task is None:
             # End of queue
@@ -278,14 +293,14 @@ async def worker(queue, browser, headless, max_per, scrape_emails):
         
         lokacija, sekcija, kategorija = task
         print(f"  -> Pokrećem pretragu: {kategorija} @ {lokacija}")
-        res = await scrape_one_query(page, kategorija, lokacija, max_per, scrape_emails)
+        res = await scrape_one_query(page, kategorija, lokacija, max_per, scrape_emails, stop_flag)
         results_map[(lokacija, sekcija, kategorija)] = res
         queue.task_done()
         
     await context.close()
     return results_map
 
-async def run_scraper(tasks_list, headless=True, max_workers=3, max_per=20, scrape_emails=False):
+async def run_scraper(tasks_list, headless=True, max_workers=3, max_per=20, scrape_emails=False, stop_flag=None):
     """Glavna funkcija koja orkestrira scraping koristeći asyncio."""
     queue = asyncio.Queue()
     for task in tasks_list:
@@ -301,7 +316,7 @@ async def run_scraper(tasks_list, headless=True, max_workers=3, max_per=20, scra
         browser = await p.chromium.launch(headless=headless)
         
         workers = [
-            asyncio.create_task(worker(queue, browser, headless, max_per, scrape_emails))
+            asyncio.create_task(worker(queue, browser, headless, max_per, scrape_emails, stop_flag))
             for _ in range(max_workers)
         ]
         

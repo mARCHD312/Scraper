@@ -1,5 +1,5 @@
 {
-  "max_results_per_query": 150,
+  "max_results_per_query": 10,
   "scrape_emails": true,
   "headless": true,
   "workers": 3,

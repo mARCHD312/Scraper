@@ -58,13 +58,19 @@ def safe_filename(name: str) -> str:
 
 
 def format_sheet(ws):
-    header_fill  = PatternFill("solid", fgColor="1F4E79")
-    header_font  = Font(name="Arial", bold=True, color="FFFFFF", size=10)
-    body_font    = Font(name="Arial", size=10)
+    header_fill  = PatternFill("solid", fgColor="2F5597") # Lepša plava
+    header_font  = Font(name="Segoe UI", bold=True, color="FFFFFF", size=11)
+    
+    body_font    = Font(name="Segoe UI", size=10)
+    link_font    = Font(name="Segoe UI", size=10, color="0563C1", underline="single") # Plava boja za linkove
+    
+    alt_fill     = PatternFill("solid", fgColor="F2F2F2") # Svetlo siva za svaki drugi red (Zebra)
+    
     center_align = Alignment(horizontal="center", vertical="center")
     left_align   = Alignment(horizontal="left",   vertical="center")
     wrap_align   = Alignment(horizontal="left",   vertical="top", wrap_text=True)
-    thin         = Side(style="thin", color="CCCCCC")
+    
+    thin         = Side(style="thin", color="D9D9D9")
     border       = Border(left=thin, right=thin, top=thin, bottom=thin)
 
     # Stil zaglavlja
@@ -74,13 +80,29 @@ def format_sheet(ws):
         cell.alignment = center_align
         cell.border    = border
 
-    # Stil tijela
-    for row in ws.iter_rows(min_row=2):
+    # Stil tijela i Zebra boje
+    for row_idx, row in enumerate(ws.iter_rows(min_row=2), start=2):
+        is_even = (row_idx % 2 == 0)
+        
         for cell in row:
-            cell.font   = body_font
-            cell.border = border
             idx = cell.column - 1
             key = KOLONE[idx] if idx < len(KOLONE) else ""
+            
+            # Ako je email, web stranica ili mapa, stavi plavi font
+            if key in ("email", "web_stranica", "google_maps_url") and cell.value:
+                cell.font = link_font
+                if str(cell.value).startswith("http"):
+                    cell.hyperlink = cell.value
+            else:
+                cell.font = body_font
+                
+            # Zebra bojenje (svaki drugi red)
+            if is_even:
+                cell.fill = alt_fill
+                
+            cell.border = border
+            
+            # Poravnanje
             if key in ("redni_broj", "ocjena", "broj_recenzija", "status", "pozvano", "zainteresovan"):
                 cell.alignment = center_align
             elif key in ("radno_vrijeme", "opis", "google_maps_url"):
@@ -93,7 +115,11 @@ def format_sheet(ws):
         ws.column_dimensions[get_column_letter(i)].width = SIRINE.get(key, 15)
 
     ws.freeze_panes = "A2"
-    ws.row_dimensions[1].height = 22
+    ws.row_dimensions[1].height = 25
+    
+    # Dodaj AutoFilter na zaglavlje
+    max_col_letter = get_column_letter(len(KOLONE))
+    ws.auto_filter.ref = f"A1:{max_col_letter}{ws.max_row}"
 
 
 def save_to_excel(results_map: dict, output_dir: str, skip_duplicates: bool = True):
@@ -121,12 +147,22 @@ def save_to_excel(results_map: dict, output_dir: str, skip_duplicates: bool = Tr
         tree[lokacija][sekcija][kategorija] = results
         
     for lokacija, sekcije in tree.items():
-        lokacija_folder = os.path.join(output_dir, safe_filename(lokacija))
-        os.makedirs(lokacija_folder, exist_ok=True)
+        parts = [p.strip() for p in lokacija.split(",")]
+        if len(parts) == 2:
+            grad, drzava = parts[0], parts[1]
+        else:
+            grad, drzava = "", parts[0]
+            
+        drzava_folder = os.path.join(output_dir, safe_filename(drzava))
+        os.makedirs(drzava_folder, exist_ok=True)
         
         for sekcija, kategorije in sekcije.items():
-            filename = safe_filename(sekcija) + ".xlsx"
-            filepath = os.path.join(lokacija_folder, filename)
+            if grad:
+                filename = f"{safe_filename(sekcija)}_{safe_filename(grad)}.xlsx"
+            else:
+                filename = f"{safe_filename(sekcija)}.xlsx"
+                
+            filepath = os.path.join(drzava_folder, filename)
             
             if os.path.exists(filepath):
                 wb = openpyxl.load_workbook(filepath)

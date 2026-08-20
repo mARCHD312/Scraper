@@ -1,0 +1,113 @@
+# Arhitektura i projektovanje
+Architect
+Architecture firm
+Architectural designer
+Architectural and engineering model maker
+Building consultant
+Building design company
+Building firm
+Log home builder
+Architekt
+Architekturbüro
+Architekturdesigner
+Modellbauer für Architektur und Technik
+Bauberater
+Bauplanungsbüro
+Bauunternehmen
+Blockhausbauer
+
+# Dizajn enterijera i uređenje prostora
+Interior designer
+Interior architect
+Interior decorator
+Interior fitting contractor
+Interior construction contractor
+Space planning service
+Kitchen remodeler
+Bathroom remodeler
+Lighting consultant
+Inneneinrichter
+Innenarchitekt
+Innendekorateur
+Innenausbauer
+Innenausbauunternehmen
+Raumplanungsbüro
+Küchenrenovierung
+Badsanierung
+Lichtberater
+
+# Crtanje, inženjering i 3D
+Drafting service
+Engineering consultant
+Structural engineer
+Civil engineering company
+3D printing service
+3D modeling service
+Industrial design company
+Product design company
+Model design company
+3D-Modellierungsservice
+Industriedesign-Unternehmen
+Produktdesign-Unternehmen
+Modellbau-Unternehmen
+Surveyor
+Zeichenbüro
+Ingenieurbüro
+Statiker
+Bauingenieurbüro
+3D-Druck-Service
+Vermessungsingenieur
+
+# Namještaj i drvna industrija
+Custom furniture maker
+Furniture maker
+Furniture manufacturer
+Cabinet maker
+Woodworker
+Carpenter
+Carpentry
+Millwork shop
+Kitchen furniture store
+Office furniture store
+Möbelschreiner
+Möbelhersteller
+Möbelfabrik
+Schreiner
+Tischler
+Zimmermann
+Zimmerei
+Schreinerei
+Küchenstudio
+Büromöbelgeschäft
+
+# Urbanizam i pejzažna arhitektura
+Landscape architect
+Landscape designer
+Landscaper
+Urban planning department
+Garden design
+Landscape lighting designer
+Landschaftsarchitekt
+Landschaftsgestalter
+Garten- und Landschaftsbauer
+Stadtplanung
+Gartengestaltung
+Außenbeleuchtungsplaner
+
+# Nekretnine, gradnja i investitori
+Real estate developer
+Real estate builder
+Home builder
+Custom home builder
+Construction company
+General contractor
+Commercial real estate agency
+Property management company
+Bauträger
+Immobilienbauer
+Hausbauer
+Massivhausanbieter
+Bauunternehmen
+Generalunternehmer
+Gewerbeimmobilienmakler
+Hausverwaltung

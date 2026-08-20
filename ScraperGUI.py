@@ -36,6 +36,8 @@ class ScraperGUI:
         # Main Frame
         main_frame = ttk.Frame(root, padding=10)
         main_frame.pack(fill=tk.BOTH, expand=True)
+        
+        self.stop_flag = {"stop": False}
 
         # Top frame for inputs
         input_frame = ttk.Frame(main_frame)
@@ -76,9 +78,15 @@ class ScraperGUI:
         self.scrape_emails_var = tk.BooleanVar(value=default_emails)
         ttk.Checkbutton(options_frame, text="Učitaj sajtove klijenata i traži Email adrese (Usporava pretragu)", variable=self.scrape_emails_var).pack(anchor=tk.W, pady=2)
 
-        # Start button
-        self.start_btn = ttk.Button(main_frame, text="POKRENI PRETRAGU", command=self.start_scraping)
-        self.start_btn.pack(pady=10)
+        # Start/Stop buttons
+        button_frame = ttk.Frame(main_frame)
+        button_frame.pack(pady=10)
+
+        self.start_btn = ttk.Button(button_frame, text="POKRENI PRETRAGU", command=self.start_scraping)
+        self.start_btn.pack(side=tk.LEFT, padx=5)
+        
+        self.stop_btn = ttk.Button(button_frame, text="ZAUSTAVI PRETRAGU", command=self.stop_scraping, state=tk.DISABLED)
+        self.stop_btn.pack(side=tk.LEFT, padx=5)
 
         # Console
         console_frame = ttk.LabelFrame(main_frame, text="Konzola (Uživo)", padding=10)
@@ -105,6 +113,12 @@ class ScraperGUI:
         if filename:
             self.cat_file_var.set(filename)
 
+    def stop_scraping(self):
+        self.stop_flag["stop"] = True
+        self.stop_btn.config(state=tk.DISABLED)
+        print("\n[!] Komanda za ZAUSTAVLJANJE je poslata!")
+        print("[!] Sačekajte malo da skripta završi započete pretrage i snimi podatke u Excel...\n")
+
     def start_scraping(self):
         country = self.country_var.get().strip()
         if not country:
@@ -116,7 +130,9 @@ class ScraperGUI:
             messagebox.showerror("Greška", f"Fajl '{cat_file}' ne postoji!")
             return
             
+        self.stop_flag["stop"] = False
         self.start_btn.config(state=tk.DISABLED)
+        self.stop_btn.config(state=tk.NORMAL)
         self.console_text.delete(1.0, tk.END)
         print(f"[{threading.current_thread().name}] Priprema zadataka...")
         
@@ -164,7 +180,8 @@ class ScraperGUI:
                 headless=config.get("headless", True),
                 max_workers=config.get("workers", 3),
                 max_per=config.get("max_results_per_query", 150),
-                scrape_emails=scrape_emails
+                scrape_emails=scrape_emails,
+                stop_flag=self.stop_flag
             ))
 
             print("\nSnimam podatke u Excel...")
@@ -184,6 +201,7 @@ class ScraperGUI:
             self.root.after(0, lambda: messagebox.showerror("Greška u radu", f"Došlo je do greške:\n{e}"))
         finally:
             self.root.after(0, lambda: self.start_btn.config(state=tk.NORMAL))
+            self.root.after(0, lambda: self.stop_btn.config(state=tk.DISABLED))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,29 @@
+Njemačka
+Freiburg, Ulm, Karlsruhe, Regensburg, Münster, Aachen, Osnabrück, Oldenburg, Würzburg, Göttingen, Heilbronn, Pforzheim, Reutlingen, Koblenz, Trier, Erlangen
+
+Švajcarska
+Winterthur, St. Gallen, Luzern, Zug, Basel, Bern, Lausanne, Lugano, Biel, Thun, Köniz, Fribourg, Schaffhausen, Chur
+
+Austrija
+Graz, Linz, Innsbruck, Salzburg, Klagenfurt, Villach, Wels, Sankt Pölten, Dornbirn, Wiener Neustadt, Steyr, Feldkirch
+
+Švedska
+Uppsala, Jönköping, Umeå, Linköping, Västerås, Örebro, Helsingborg, Norrköping, Lund, Gävle, Borås, Växjö
+
+Danska
+Odense, Aalborg, Aarhus, Esbjerg, Randers, Kolding, Horsens, Vejle, Roskilde, Herning, Silkeborg, Næstved, Viborg
+
+Norveška
+Stavanger, Trondheim, Tromsø, Drammen, Fredrikstad, Skien, Kristiansand, Tønsberg, Ålesund, Bodø, Sandefjord, Haugesund, Gjøvik, Hamar, Molde
+
+Holandija
+Eindhoven, Utrecht, Groningen, Breda
+
+Belgija
+Gent, Antwerpen, Leuven, Brugge
+
+Velika Britanija
+Bristol, Bath, Nottingham, Leeds, Newcastle, Leicester, Belfast, Brighton, Southampton, Cambridge, Oxford, Chester, York, Norwich, Exeter, Aberdeen, Dundee
+
+Irska
+Cork, Galway, Limerick, Waterford, Drogheda, Dundalk, Bray, Navan, Kilkenny, Ennis, Carlow, Tralee

@@ -1,0 +1,164 @@
+# Arhitektura i projektovanje
+Architect
+Architecture firm
+Architectural designer
+Architectural and engineering model maker
+Building consultant
+Building design company
+Building firm
+Log home builder
+Architekt
+Architekturbüro
+Architekturdesigner
+Modellbauer für Architektur und Technik
+Bauberater
+Bauplanungsbüro
+Bauunternehmen
+Blockhausbauer
+Architecte
+Cabinet d'architectes
+Concepteur en architecture
+Maquettiste en architecture et ingénierie
+Consultant en bâtiment
+Société de conception de bâtiments
+Entreprise de bâtiment
+Constructeur de maisons en rondins
+
+# Dizajn enterijera i uređenje prostora
+Interior designer
+Interior architect
+Interior decorator
+Interior fitting contractor
+Interior construction contractor
+Space planning service
+Kitchen remodeler
+Bathroom remodeler
+Lighting consultant
+Inneneinrichter
+Innenarchitekt
+Innendekorateur
+Innenausbauer
+Innenausbauunternehmen
+Raumplanungsbüro
+Küchenrenovierung
+Badsanierung
+Lichtberater
+Décorateur d'intérieur
+Architecte d'intérieur
+Décorateur
+Entreprise d'aménagement intérieur
+Entreprise de construction intérieure
+Service d'aménagement d'espace
+Rénovateur de cuisines
+Rénovateur de salles de bains
+Consultant en éclairage
+
+# Crtanje, inženjering i 3D
+Drafting service
+Engineering consultant
+Structural engineer
+Civil engineering company
+3D printing service
+3D modeling service
+Industrial design company
+Product design company
+Model design company
+3D-Modellierungsservice
+Industriedesign-Unternehmen
+Produktdesign-Unternehmen
+Modellbau-Unternehmen
+Service de modélisation 3D
+Entreprise de design industriel
+Entreprise de conception de produits
+Entreprise de conception de modèles
+Surveyor
+Zeichenbüro
+Ingenieurbüro
+Statiker
+Bauingenieurbüro
+3D-Druck-Service
+Vermessungsingenieur
+Bureau d'études
+Ingénieur-conseil
+Ingénieur structure
+Entreprise de génie civil
+Service d'impression 3D
+Géomètre
+
+# Namještaj i drvna industrija
+Custom furniture maker
+Furniture maker
+Furniture manufacturer
+Cabinet maker
+Woodworker
+Carpenter
+Carpentry
+Millwork shop
+Kitchen furniture store
+Office furniture store
+Möbelschreiner
+Möbelhersteller
+Möbelfabrik
+Schreiner
+Tischler
+Zimmermann
+Zimmerei
+Schreinerei
+Küchenstudio
+Büromöbelgeschäft
+Fabricant de meubles sur mesure
+Fabricant de meubles
+Menuisier ébéniste
+Ébéniste
+Travailleur du bois
+Charpentier
+Menuiserie
+Atelier de menuiserie
+Magasin de meubles de cuisine
+Magasin de meubles de bureau
+
+# Urbanizam i pejzažna arhitektura
+Landscape architect
+Landscape designer
+Landscaper
+Urban planning department
+Garden design
+Landscape lighting designer
+Landschaftsarchitekt
+Landschaftsgestalter
+Garten- und Landschaftsbauer
+Stadtplanung
+Gartengestaltung
+Außenbeleuchtungsplaner
+Architecte paysagiste
+Concepteur paysagiste
+Paysagiste
+Service d'urbanisme
+Conception de jardins
+Concepteur d'éclairage paysager
+
+# Nekretnine, gradnja i investitori
+Real estate developer
+Real estate builder
+Home builder
+Custom home builder
+Construction company
+General contractor
+Commercial real estate agency
+Property management company
+Bauträger
+Immobilienbauer
+Hausbauer
+Massivhausanbieter
+Bauunternehmen
+Generalunternehmer
+Gewerbeimmobilienmakler
+Hausverwaltung
+Promoteur immobilier
+Constructeur immobilier
+Constructeur de maisons
+Constructeur de maisons personnalisées
+Entreprise de construction
+Entrepreneur général
+Agence immobilière commerciale
+Société de gestion immobilière
