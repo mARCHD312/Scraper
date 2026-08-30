@@ -1,0 +1,113 @@
+# Arhitektura i projektiranje
+Architect
+Arhitekt
+Architecture firm
+Arhitektonski ured
+Architectural designer
+Arhitektonski projektant
+Architectural and engineering model maker
+Izrađivač arhitektonskih i inženjerskih maketa
+Building consultant
+Građevinski savjetnik
+Building design company
+Tvrtka za projektiranje zgrada
+Building firm
+Građevinska tvrtka
+Log home builder
+Graditelj drvenih kuća
+
+# Dizajn interijera i uređenje prostora
+Interior designer
+Dizajner interijera
+Interior architect
+Arhitekt interijera
+Interior decorator
+Dekorater interijera
+Interior fitting contractor
+Izvođač radova na opremanju interijera
+Interior construction contractor
+Izvođač unutarnjih građevinskih radova
+Space planning service
+Usluga prostornog planiranja
+Kitchen remodeler
+Adaptacija kuhinja
+Bathroom remodeler
+Adaptacija kupaonica
+Lighting consultant
+Savjetnik za rasvjetu
+
+# Crtanje, inženjering i 3D
+Drafting service
+Usluga tehničkog crtanja
+Engineering consultant
+Inženjerski savjetnik
+Structural engineer
+Statičar
+Civil engineering company
+Tvrtka za građevinski inženjering
+3D printing service
+Usluga 3D printanja
+3D modeling service
+Usluga 3D modeliranja
+Industrial design company
+Tvrtka za industrijski dizajn
+Product design company
+Tvrtka za dizajn proizvoda
+Model design company
+Tvrtka za izradu maketa
+Surveyor
+Geodet
+
+# Namještaj i drvna industrija
+Custom furniture maker
+Proizvođač namještaja po mjeri
+Furniture maker
+Proizvođač namještaja
+Furniture manufacturer
+Tvornica namještaja
+Cabinet maker
+Stolar
+Woodworker
+Drvodjelja
+Carpenter
+Tesar
+Carpentry
+Stolarija
+Millwork shop
+Stolarska radionica
+Kitchen furniture store
+Trgovina kuhinjskim namještajem
+Office furniture store
+Trgovina uredskim namještajem
+
+# Urbanizam i krajobrazna arhitektura
+Landscape architect
+Krajobrazni arhitekt
+Landscape designer
+Krajobrazni dizajner
+Landscaper
+Uređenje okoliša
+Urban planning department
+Odjel za urbanizam
+Garden design
+Dizajn vrtova
+Landscape lighting designer
+Dizajner vanjske rasvjete
+
+# Nekretnine, gradnja i investitori
+Real estate developer
+Investitor u nekretnine
+Real estate builder
+Graditelj nekretnina
+Home builder
+Graditelj kuća
+Custom home builder
+Graditelj kuća po mjeri
+Construction company
+Građevinska tvrtka
+General contractor
+Glavni izvođač radova
+Commercial real estate agency
+Agencija za komercijalne nekretnine
+Property management company
+Tvrtka za upravljanje nekretninama
